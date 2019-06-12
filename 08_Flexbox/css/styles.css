@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu-container {
+  color: #fff;
+  background-color: #5995DA;  /* Blue */
+  padding: 20px 0;
+  display: flex; /* Defining this container as a "flex container". "flex-items" inside this will behave as the Flexbox instead of
+                    the conventional Box model */
+  justify-content: center; /* Alignes flex items in the center of the flex container. Same as adding "margin: 0 auto;" on a div on
+                              a regular box model's container */
+
+}
+
+.menu {
+  border: 1px solid #fff;  /* For debugging */
+  width: 900px;
+  display: flex;
+  /* justify-content: space-between; */ /* This won't be necessary because the margin attribute in the .signup flex item moves
+                                          the .login item with it */
+}
+
+/* Class not used - Just an example of flex-end for a flex container with two flex items inside. Later replaced by use of margin */
+/* .links {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.signup {
+  margin-left: auto; /* Margins in flexbox moves the item and all following items to the opposite direction - In this case to the right */
+}
+
+.login {
+  margin-left: 20px;
+}
+
+.header-container {
+  color: #5995DA;
+  background-color: #D6E9FE;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  width: 900px;
+  height: 300px;
+  display: flex;
+  justify-content: space-between; /* horizontal aligment/distribution */
+  align-items: center; /* Vertical alignment/distribution */
+}
+
+.social,
+.subscribe {
+  align-self: flex-end; /* alignes only this flex-item to this position, overwriting the flex0-container's set position */
+  margin-bottom: 20px;
+}
+
+.photo-grid-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+.photo-grid {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  /* flex-direction: row-reverse; */ /* Reverses the order of the items defined in the HTML tags for each row. In this case, shows
+                                  the last image of each row as first and vice versa */
+}
+
+.photo-grid-item {
+  border: 1px solid #fff;
+  width: 300px;
+  height: 300px;
+}
+
+/* Here we're changing directly the flex-items individually instaed of changing the container */
+.first-item {
+  order: 1; /* The default position of each element is 0, so since this is set as 1 it becomes the highest number in the order
+              and therefore the last item in the sequency */
+}
+
+.last-item {
+  order: -1; /* This is the minor number from all elements (0 - defaut, 1 - set for "first-item"), thus it moves the last element
+                to the first position. */
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-item {
+  border: 1px solid #fff;
+  background-color: #D6E9FE;
+  height: 200px;
+  flex: 1;/* This controls the size of the flex-items in relation to their flex-container. For example, when 1 item is set
+              flex: 1, it occupies the whole parent container's width. If three items are set flex: 1, the three will occupy 1/3
+              of it's parent's width. If one item is flex:2 and the other is flex:1, the first will be twice as large as the first
+              and so on. This is a flexible boxes. Static box are the ones with set width.*/
+}
+
+/* This two items are being set as static box, overwriting the flex: 1 property set in the .footer-item class */
+.footer-one,
+.footer-three {
+  background-color: #5995DA;
+  flex: initial; /* This defines this will be static and use the set width. If not set, the width is ignored. */
+  width: 300px;
+}
+
+.footer-two {
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+/* Class not in use, just kept as an example of flex-direction: vertical and items centralization */
+.photo-grid_veritcal {
+  width: 900px;
+  display: flex;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  flex-direction: column; /* Defines if the flex items will be positioned one after another horizontally (default) or vertically.
+                          When the flex-direction rotates, the align commands also rotates, so to center this content horizontally
+                          it's necessary to set the "align-items" property rather than "justify-content"  */
+  align-items: center;
+}
